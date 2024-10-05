@@ -1,7 +1,6 @@
 import BackgroundVideo from "@/components/backGroundVideo";
 import Header from "@/components/HeaderComp";
 import PlanetScroll from "@/components/PlanetScroll";
-import Image from "next/image";
 
 export default function Home() {
 

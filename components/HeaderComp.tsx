@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { userDummyData } from "@/data/userDummyData";
 
 interface HeaderProps {
   userName: string;
@@ -11,7 +10,7 @@ interface HeaderProps {
   exoBucks: number;
 }
 
-const Header: React.FC<HeaderProps> = ({ userName, sectionInfo, exoBucks }) => {
+const Header: React.FC<HeaderProps> = ({ exoBucks }) => {
   return (
     <header className="absolute top-5 left-0 right-0 flex justify-between items-center p-4 text-white z-50">
       <div className="flex items-center space-x-2">

@@ -6,9 +6,25 @@ import { lessonsDummyData } from '@/data/lessonsDummyData';
 import { userDummyData } from '@/data/userDummyData';
 import LessonPopup from './LessonPopup';
 
+// Import or define the Lesson interface
+interface Answer {
+  id: number;
+  text: string;
+  isCorrect: boolean;
+}
+
+interface Lesson {
+  id: number;
+  name: string;
+  description: string;
+  video: string;
+  question: string;
+  answers: Answer[];
+}
+
 const PlanetScroll: React.FC = () => {
   const userLevel = userDummyData.level;
-  const [selectedLesson, setSelectedLesson] = useState<any | null>(null);
+  const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
 
   return (
     <div className="px-4 py-8 relative">

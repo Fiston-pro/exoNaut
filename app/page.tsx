@@ -14,7 +14,7 @@ export default function Home() {
   
   return (
     <div className="min-h-screen flex flex-col">
-      <BackgroundVideo src="/videos/background_looped.mp4" />
+      <BackgroundVideo src="/videos/background_gif.gif" />
       <div className="relative z-10 flex flex-col flex-grow">
         <Header
           userName={userDummyData.name}

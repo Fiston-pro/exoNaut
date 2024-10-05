@@ -59,7 +59,7 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose }) => {
               onEnded={handleVideoEnd}
             />
             <button
-              className="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded transition duration-300"
+              className="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded transition duration-300"
               onClick={handleVideoEnd}
             >
               Skip to Quiz
@@ -74,12 +74,12 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose }) => {
                 key={answer.id}
                 className={`block w-full text-left p-2 mb-2 border rounded transition duration-300 ${
                   selectedAnswer === answer.id
-                    ? 'bg-primary text-white'
+                    ? 'bg-violet-600 text-white'
                     : 'bg-secondary hover:bg-secondary-light'
                 } ${
                   showResult
                     ? answer.isCorrect
-                      ? 'bg-green-500 text-white'
+                      ? 'bg-green-500 text-white transform scale-105'
                       : selectedAnswer === answer.id
                       ? 'bg-red-500 text-white'
                       : ''
@@ -96,7 +96,7 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose }) => {
             ))}
             {!showResult ? (
               <button
-                className="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded mt-4 transition duration-300"
+                className="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded mt-4 transition duration-300"
                 onClick={handleSubmit}
                 disabled={selectedAnswer === null}
               >
@@ -104,13 +104,17 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose }) => {
               </button>
             ) : (
               <div className="mt-4">
-                <p className="text-xl font-semibold mb-2">
+                <p className={`text-xl font-semibold mb-2 ${
+                  lesson.answers.find(a => a.id === selectedAnswer)?.isCorrect
+                    ? 'text-green-500 animate-bounce'
+                    : 'text-red-500'
+                }`}>
                   {lesson.answers.find(a => a.id === selectedAnswer)?.isCorrect
                     ? 'Congratulations! You got it right!'
                     : 'Oops! That\'s not correct. The correct answer is highlighted in green.'}
                 </p>
                 <button
-                  className="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded transition duration-300"
+                  className="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded transition duration-300"
                   onClick={onClose}
                 >
                   Close

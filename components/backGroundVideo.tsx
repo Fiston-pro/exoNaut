@@ -1,24 +1,23 @@
 import React from 'react';
+import Image from 'next/image';
 
-interface BackgroundVideoProps {
+interface BackgroundGifProps {
   src: string;
 }
 
-const BackgroundVideo: React.FC<BackgroundVideoProps> = ({ src }) => {
+const BackgroundGif: React.FC<BackgroundGifProps> = ({ src }) => {
   return (
     <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10">
-      <video 
-        autoPlay 
-        loop 
-        muted 
-        playsInline 
-        className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto transform -translate-x-1/2 -translate-y-1/2 object-cover"
-      >
-        <source src={src} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <Image 
+        src={src}
+        alt="Background"
+        layout="fill"
+        objectFit="cover"
+        quality={100}
+        priority
+      />
     </div>
   );
 };
 
-export default BackgroundVideo;
+export default BackgroundGif;

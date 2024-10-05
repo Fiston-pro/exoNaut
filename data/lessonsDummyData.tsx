@@ -208,30 +208,6 @@ export const lessonsDummyData = [
           { id: 2, text: "Cold", isCorrect: true }
         ],
       },
-      {
-        id: 17,
-        name: "Luhman 16 b",
-        description: "It is about 6.53 light-years away from Earth. This planet is a bit different because it’s not a regular planet like Earth;\n it’s a 'sub-brown dwarf,' meaning it’s larger than a planet but smaller than a star. Luhman 16 b is very cold and does not have a solid surface.",
-        video: "",
-        question: "What’s this planet called?",
-        answer: [
-          { id: 1, text: "Sub-brown dwarf", isCorrect: true },
-          { id: 2, text: "A Troll", isCorrect: false },
-          { id: 3, text: "An Elf", isCorrect: false }
-        ],
-      },
-      {
-        id: 18,
-        name: "Wolf 1061 c",
-        description: "It’s about 13.8 light-years away from Earth. What makes this exoplanet interesting is that it's in the 'habitable zone' of its star, where temperatures might allow liquid water to exist, just like on Earth. \nScientists are excited about it because it could be a place where life might be possible!",
-        video: "",
-        question: "What makes this particular planet interesting?",
-        answer: [
-          { id: 1, text: "Its habitable world", isCorrect: true },
-          { id: 2, text: "Its size", isCorrect: false },
-          { id: 3, text: "Its name", isCorrect: false }
-        ],
-      },
     ],
   },
   {
@@ -239,29 +215,7 @@ export const lessonsDummyData = [
     name: "Crazy Exoplanets",
     lessons: [
       {
-        id: 19,
-        name: "HD 189733 b",
-        description: "This planet has glass rain! Winds blow at 5,400 miles per hour, and tiny glass pieces rain sideways in the sky.\n Imagine a storm made of glass shards!",
-        video: "",
-        question: "Is the rain watery on this exoplanet?",
-        answer: [
-          { id: 1, text: "Yes! What else could it be?", isCorrect: false },
-          { id: 2, text: "No, of course not! It’s glass!", isCorrect: true }
-        ],
-      },
-      {
-        id: 20,
-        name: "WASP-12b",
-        description: "It’s called a 'hot Jupiter' because it’s super close to its star. \nIt's so hot that the planet is slowly being eaten by the star, like a marshmallow melting in fire.",
-        video: "",
-        question: "Does the position of the planet influence its surface?",
-        answer: [
-          { id: 1, text: "Yes, very!", isCorrect: true },
-          { id: 2, text: "No, not at all.", isCorrect: false }
-        ],
-      },
-      {
-        id: 21,
+        id: 17,
         name: "55 Cancri e",
         description: "This planet might be made of diamonds! \nIt’s so rich in carbon, scientists think its surface could be sparkling with diamond-like rocks.",
         video: "",
@@ -274,7 +228,7 @@ export const lessonsDummyData = [
         ],
       },
       {
-        id: 22,
+        id: 19,
         name: "Kepler-16b",
         description: "This planet orbits two stars, just like in Star Wars! \nIf you stood on it, you’d see two sunsets every day. How cool is that?",
         video: "",

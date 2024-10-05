@@ -18,8 +18,8 @@ const Header: React.FC<HeaderProps> = ({ userName, sectionInfo, exoBucks, userIm
       <div className="text-xl font-bold">{userName}</div>
       <div className="flex items-center space-x-4">
         <div className="flex items-center">
-          <Image src="/images/exobucks_img.png" alt="ExoBucks" width={24} height={24} />
-          <span className="ml-2">{exoBucks}</span>
+          <Image src="/images/exobucks_img.png" alt="ExoBucks" width={48} height={48} />
+          <span className="ml-2 text-2xl font-bold">{exoBucks}</span>
         </div>
         <Image src={userImage} alt="User profile" width={40} height={40} className="rounded-full" />
       </div>

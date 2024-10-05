@@ -13,47 +13,57 @@ const icons = [
 ];
 
 const PlanetScroll: React.FC = () => {
-  const firstLesson = lessonsDummyData[0];
+  const userLevel = userDummyData.level;
 
   return (
-    <div className=" px-4 py-8 relative">
-      {
-        lessonsDummyData.map((lesson, index) => // unit level
-        <div>
-
-          <div key={index} className="text-left bg-secondary-dark rounded-lg px-6 py-3 w-[300px]">
-            <div className="text-lg font-semibold">Unit {index + 1}</div>
-            <div className="text-xl font-bold">{lesson.name}</div>
+    <div className="px-4 py-8 relative">
+      {lessonsDummyData.map((unit, unitIndex) => (
+        <div key={unitIndex}>
+          <div className="text-left bg-secondary-dark rounded-lg px-6 py-3 w-[300px]">
+            <div className="text-lg font-semibold">Unit {unitIndex + 1}</div>
+            <div className="text-xl font-bold">{unit.name}</div>
           </div>
 
-          {
-            lesson.lessons && lesson.lessons.map((lesson, index) => {
-              const randomIconNumber = Math.floor(Math.random() * 21) + 1;
-              return (
-                <div className="flex flex-col items-center mt-10 ">
-              <div
-                key={index}
-                className="mb-16 w-full relative transition-all duration-300"
-                style={{
-                  left: `${Math.sin(index * 0.6) * 50}px`, // Adjust amplitude and frequency for a better S-shape
-                }}
-              >
-                <Image
-                  src={`/images/planets/planet_img_${randomIconNumber}.png`}
-                  alt={`Planet ${randomIconNumber}`}
-                  width={80}
-                  height={80}
-                  className="rounded-full bg-neutral-light p-1"
-                />
+          {unit.lessons && unit.lessons.map((lesson, lessonIndex) => {
+            const randomIconNumber = Math.floor(Math.random() * 21) + 1;
+            const isLocked = lesson.id > userLevel;
+            const isCurrentLevel = lesson.id === userLevel;
+
+            return (
+              <div key={lessonIndex} className="flex flex-col items-center mt-10">
+                <div
+                  className="mb-16 w-full relative transition-all duration-300"
+                  style={{
+                    left: `${Math.sin(lessonIndex * 0.6) * 50}px`,
+                  }}
+                >
+                  <div className="relative inline-block">
+                    <Image
+                      src={`/images/planets/planet_img_${randomIconNumber}.png`}
+                      alt={`Planet ${randomIconNumber}`}
+                      width={80}
+                      height={80}
+                      className={`rounded-full p-1 ${
+                        isLocked ? 'bg-gray-400 filter grayscale' : 'bg-secondary-dark'
+                      }`}
+                    />
+                    {isCurrentLevel && (
+                      <div className="absolute -right-10 top-1/2 transform -translate-y-1/2">
+                        <Image
+                          src="/images/rocket_img.png"
+                          alt="Current level"
+                          width={40}
+                          height={40}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
-              </div>
-            )
-          }
-          )
-          }
+            );
+          })}
         </div>
-        )
-      }
+      ))}
     </div>
   );
 };

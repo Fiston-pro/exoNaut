@@ -7,7 +7,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ exoBucks }) => {
   return (
-    <header className="absolute left-0 right-0 flex justify-between items-center p-4 text-white z-50">
+    <header className="fixed left-0 right-0 top-0 flex justify-between items-center p-4 text-white z-50">
       <div className="flex items-center space-x-2">
         <Image
           src="/videos/astronaut_icon.gif"

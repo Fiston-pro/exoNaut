@@ -1,10 +1,10 @@
 export const lessonsDummyData = [
   {
-    id: 1,
+    id: 1, //UNIT 1
     name: "Let's Get Started!",
     lessons: [
       {
-        id: 1,
+        id: 1, 
         name: "Introduction",
         description: "You are going to explore the universe!",
         video: "",
@@ -76,7 +76,7 @@ export const lessonsDummyData = [
     ],
   },
   {
-    id: 2,
+    id: 2, //UNIT 2
     name: "Kinds of Exoplanets",
     lessons: [
       {
@@ -129,7 +129,7 @@ export const lessonsDummyData = [
     ],
   },
   {
-    id: 3,
+    id: 3, //UNIT 3
     name: "In Search for Exoplanets and Their Life",
     lessons: [
       {
@@ -183,7 +183,7 @@ export const lessonsDummyData = [
     ],
   },
   {
-    id: 4,
+    id: 4, //UNIT 4
     name: "The Closest Exoplanets",
     lessons: [
       {
@@ -208,12 +208,6 @@ export const lessonsDummyData = [
           { id: 2, text: "Cold", isCorrect: true }
         ],
       },
-    ],
-  },
-  {
-    id: 5,
-    name: "Crazy Exoplanets",
-    lessons: [
       {
         id: 17,
         name: "55 Cancri e",
@@ -228,7 +222,7 @@ export const lessonsDummyData = [
         ],
       },
       {
-        id: 19,
+        id: 18,
         name: "Kepler-16b",
         description: "This planet orbits two stars, just like in Star Wars! \nIf you stood on it, you’d see two sunsets every day. How cool is that?",
         video: "",

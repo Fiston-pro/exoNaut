@@ -4,7 +4,7 @@ Welcome to the Exonaut project repository! We're a team participating in the Hac
 
 ## Deployed on:
 
-[hackYeah](https://exonaut.vercel.app/)
+[ExoNaut](https://exonaut.vercel.app/)
 
 ## About the Project
 

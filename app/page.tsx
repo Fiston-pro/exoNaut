@@ -12,7 +12,7 @@ export default function Home() {
   
   return (
     <div>
-      <BackgroundVideo src="/videos/backGroundVideos/background.mp4" />
+      <BackgroundVideo src="/videos/background.mp4" />
       <div className="relative z-10">
         <h1 className="text-4xl font-bold text-center">Welcome to ExoNaut</h1>
         <p className="text-lg text-center">

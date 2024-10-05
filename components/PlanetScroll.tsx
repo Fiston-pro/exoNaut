@@ -1,5 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
+import { lessonsDummyData } from '@/data/lessonsDummyData';
+import { userDummyData } from '@/data/userDummyData';
 
 const icons = [
   '/images/planets/planet_img_1.png',
@@ -11,6 +13,7 @@ const icons = [
 ];
 
 const PlanetScroll: React.FC = () => {
+
   return (
     <div className="h-[600px] px-4 py-8 relative">
       <div className="flex flex-col items-center">
@@ -27,7 +30,7 @@ const PlanetScroll: React.FC = () => {
               alt={`Planet ${index + 1}`}
               width={80}
               height={80}
-              className="rounded-full bg-secondary-light p-1"
+              className="rounded-full bg-neutral-light p-1"
             />
           </div>
         ))}

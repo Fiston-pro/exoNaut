@@ -27,6 +27,16 @@ pnpm dev
 
 Happy coding and exploring exoplanets!
 
+## Technicalities
+
+- NextJS
+- TailwindCSS
+- ShadCN
+- Vercel
+
+## Logic
+Exobucks calculation is done after each learning you get +5 and at the end there is a quiz and you get 1 if you pass it too
+
 ## Contributing
 
 We welcome contributions! If you'd like to contribute to Exonaut and help inspire the next generation of space explorers, please feel free to submit pull requests or open issues.

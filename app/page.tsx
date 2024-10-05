@@ -1,4 +1,5 @@
 import BackgroundVideo from "@/components/backGroundVideo";
+import Header from "@/components/HeaderComp";
 import Image from "next/image";
 
 export default function Home() {
@@ -14,6 +15,12 @@ export default function Home() {
     <div>
       <BackgroundVideo src="/videos/background.mp4" />
       <div className="relative z-10">
+        <Header
+          userName={userDummyData.name}
+          sectionInfo={{ section: 1, unit: 1, name: "Introduction" }}
+          exoBucks={userDummyData.exoBucks}
+          userImage={userDummyData.image}
+        />
         <h1 className="text-4xl font-bold text-center">Welcome to ExoNaut</h1>
         <p className="text-lg text-center">
           Explore the universe of exoplanets and learn about them in an interactive way.

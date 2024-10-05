@@ -11,9 +11,34 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: {
+          DEFAULT: '#3498db', // A bright blue
+          light: '#5dade2',
+          dark: '#2980b9',
+        },
+        secondary: {
+          DEFAULT: '#e74c3c', // A vibrant red
+          light: '#ec7063',
+          dark: '#c0392b',
+        },
+        accent: {
+          DEFAULT: '#f1c40f', // A bright yellow
+          light: '#f4d03f',
+          dark: '#d4ac0d',
+        },
+        neutral: {
+          DEFAULT: '#95a5a6', // A cool gray
+          light: '#bdc3c7',
+          dark: '#7f8c8d',
+        },
+        space: {
+          dark: '#2c3e50', // A deep blue-gray for dark backgrounds
+          light: '#34495e', // A lighter blue-gray for contrast
+        },
       },
     },
   },
   plugins: [],
 };
+
 export default config;

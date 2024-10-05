@@ -1,5 +1,6 @@
 import BackgroundVideo from "@/components/backGroundVideo";
 import Header from "@/components/HeaderComp";
+import PlanetScroll from "@/components/PlanetScroll";
 import Image from "next/image";
 
 export default function Home() {
@@ -12,19 +13,18 @@ export default function Home() {
   };
   
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <BackgroundVideo src="/videos/background.mp4" />
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col flex-grow">
         <Header
           userName={userDummyData.name}
           sectionInfo={{ section: 1, unit: 1, name: "Introduction" }}
           exoBucks={userDummyData.exoBucks}
           userImage={userDummyData.image}
         />
-        <h1 className="text-4xl font-bold text-center">Welcome to ExoNaut</h1>
-        <p className="text-lg text-center">
-          Explore the universe of exoplanets and learn about them in an interactive way.
-        </p>
+        <div className="flex-grow flex justify-center items-center">
+          <PlanetScroll />
+        </div>
       </div>
     </div>
   );

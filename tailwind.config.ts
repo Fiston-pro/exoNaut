@@ -17,9 +17,9 @@ const config: Config = {
           dark: '#2980b9',
         },
         secondary: {
-          DEFAULT: '#e74c3c', // A vibrant red
-          light: '#ec7063',
-          dark: '#c0392b',
+          DEFAULT: '#5B21B6', // Dark violet
+          light: '#7C3AED',
+          dark: '#4C1D95',
         },
         accent: {
           DEFAULT: '#f1c40f', // A bright yellow

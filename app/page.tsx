@@ -21,7 +21,7 @@ export default function Home() {
           sectionInfo={{ section: 1, unit: 1, name: "Introduction" }}
           exoBucks={userDummyData.exoBucks}
         />
-        <div className="flex-grow flex justify-center items-center">
+        <div className="flex-grow flex justify-center items-center mt-20 sm:mt-0">
           <PlanetScroll />
         </div>
       </div>

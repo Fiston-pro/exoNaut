@@ -1,19 +1,14 @@
-import React from 'react';
+"use client"
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { lessonsDummyData } from '@/data/lessonsDummyData';
 import { userDummyData } from '@/data/userDummyData';
-
-const icons = [
-  '/images/planets/planet_img_1.png',
-  '/images/planets/planet_img_2.png',
-  '/images/planets/planet_img_3.png',
-  '/images/planets/planet_img_4.png',
-  '/images/planets/planet_img_5.png',
-  // Add more icon paths as needed
-];
+import LessonPopup from './LessonPopup';
 
 const PlanetScroll: React.FC = () => {
   const userLevel = userDummyData.level;
+  const [selectedLesson, setSelectedLesson] = useState<any | null>(null);
 
   return (
     <div className="px-4 py-8 relative">
@@ -37,7 +32,10 @@ const PlanetScroll: React.FC = () => {
                     left: `${Math.sin(lessonIndex * 0.6) * 50}px`,
                   }}
                 >
-                  <div className="relative inline-block">
+                  <div 
+                    className="relative inline-block cursor-pointer"
+                    onClick={() => !isLocked && setSelectedLesson(lesson)}
+                  >
                     <Image
                       src={`/images/planets/planet_img_${randomIconNumber}.png`}
                       alt={`Planet ${randomIconNumber}`}
@@ -64,6 +62,13 @@ const PlanetScroll: React.FC = () => {
           })}
         </div>
       ))}
+      
+      {selectedLesson !== null && (
+        <LessonPopup
+          lesson={selectedLesson}
+          onClose={() => setSelectedLesson(null)}
+        />
+      )}
     </div>
   );
 };

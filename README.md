@@ -34,6 +34,14 @@ Happy coding and exploring exoplanets!
 - ShadCN
 - Vercel
 
+## Features
+- Every refresh the planets are randomized
+- Short lessons with a video to not make you bored and a quiz to test your brains
+- You collect exobucks to appear more cool
+
+## Future Features
+- Leaderboard to compare yourself with others
+
 ## Logic
 Exobucks calculation is done after each learning you get +5 and at the end there is a quiz and you get 1 if you pass it too
 

@@ -6,7 +6,7 @@ export const lessonsDummyData = [
       {
         id: 1, 
         name: "Introduction",
-        description: "You are going to explore the universe!",
+        description: "Have you ever dreamt of being a space explorer? \n To leave our planet or maybe even explore beyond the Solar System? \nNow is your chance to join us and become an exonout! ",
         video: "",
         question: "Are you ready?",
         answers: [

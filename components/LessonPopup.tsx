@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { FaVolumeUp } from 'react-icons/fa';
 
 interface Answer {
   id: number;
@@ -22,6 +23,7 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose }) => {
   const [showQuiz, setShowQuiz] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
+  const speechSynthesis = useRef(window.speechSynthesis);
 
   const handleVideoEnd = () => {
     setShowQuiz(true);
@@ -43,6 +45,12 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose }) => {
     } else {
       setShowResult(true);
     }
+  };
+
+  const readQuestionAndAnswers = () => {
+    const textToRead = `${lesson.question} ${lesson.answers.map((answer, index) => `Option ${index + 1}: ${answer.text}`).join('. ')}`;
+    const utterance = new SpeechSynthesisUtterance(textToRead);
+    speechSynthesis.current.speak(utterance);
   };
 
   return (
@@ -67,8 +75,16 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose }) => {
           </div>
         ) : (
           <div>
-            <h3 className="text-xl font-semibold mb-4">Quiz</h3>
-            <p className="mb-4">{lesson.question}</p>
+            <div className="flex items-center mb-4">
+              <p className="flex-grow text-lg">{lesson.question}</p>
+              <button
+                className="ml-4 p-3 bg-violet-600 hover:bg-violet-700 rounded-full transition duration-300"
+                onClick={readQuestionAndAnswers}
+                aria-label="Read question and answers aloud"
+              >
+                <FaVolumeUp className="text-white text-2xl" />
+              </button>
+            </div>
             {lesson.answers.map((answer) => (
               <button
                 key={answer.id}

@@ -9,19 +9,24 @@ interface HeaderProps {
     name: string;
   };
   exoBucks: number;
-  userImage: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ userName, sectionInfo, exoBucks, userImage }) => {
+const Header: React.FC<HeaderProps> = ({ userName, sectionInfo, exoBucks }) => {
   return (
     <header className="absolute top-5 left-0 right-0 flex justify-between items-center p-4 text-white z-50">
       <div className="text-xl font-bold">{userName}</div>
       <div className="flex items-center space-x-4">
         <div className="flex items-center">
-          <Image src="/images/exobucks_img.png" alt="ExoBucks" width={48} height={48} />
-          <span className="ml-2 text-2xl font-bold">{exoBucks}</span>
+          <Image src="/images/exobucks_img.png" alt="ExoBucks" width={40} height={40} />
+          <span className="ml-2 text-xl font-bold">{exoBucks}</span>
         </div>
-        <Image src={userImage} alt="User profile" width={40} height={40} className="rounded-full" />
+        <Image 
+          src="/images/user_img.png" 
+          alt="User profile" 
+          width={40} 
+          height={40} 
+          className="rounded-full"
+        />
       </div>
     </header>
   );

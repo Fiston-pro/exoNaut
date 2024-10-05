@@ -14,13 +14,12 @@ export default function Home() {
   
   return (
     <div className="min-h-screen flex flex-col">
-      <BackgroundVideo src="/videos/background.mp4" />
+      <BackgroundVideo src="/videos/background_looped.mp4" />
       <div className="relative z-10 flex flex-col flex-grow">
         <Header
           userName={userDummyData.name}
           sectionInfo={{ section: 1, unit: 1, name: "Introduction" }}
           exoBucks={userDummyData.exoBucks}
-          userImage={userDummyData.image}
         />
         <div className="flex-grow flex justify-center items-center">
           <PlanetScroll />

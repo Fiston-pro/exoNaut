@@ -2,17 +2,12 @@ import Image from "next/image";
 
 interface HeaderProps {
   userName: string;
-  sectionInfo: {
-    section: number;
-    unit: number;
-    name: string;
-  };
   exoBucks: number;
 }
 
 const Header: React.FC<HeaderProps> = ({ exoBucks }) => {
   return (
-    <header className="absolute top-5 left-0 right-0 flex justify-between items-center p-4 text-white z-50">
+    <header className="absolute left-0 right-0 flex justify-between items-center p-4 text-white z-50">
       <div className="flex items-center space-x-2">
         <Image
           src="/videos/astronaut_icon.gif"

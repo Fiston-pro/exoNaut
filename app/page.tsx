@@ -17,7 +17,6 @@ export default function Home() {
       <div className="relative z-10 flex flex-col flex-grow">
         <Header
           userName={userDummyData.name}
-          sectionInfo={{ section: 1, unit: 1, name: "Introduction" }}
           exoBucks={userDummyData.exoBucks}
         />
         <div className="flex-grow flex justify-center items-center mt-20 sm:mt-0">

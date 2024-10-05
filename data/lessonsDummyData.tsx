@@ -2,7 +2,7 @@ export const lessonsDummyData = [
     // we want to have multiple units and each unit to have multiple lessons
     {
       id: 1,
-      name: "Unit 1",
+      name: "What is a planet?",
       lessons: [
         {
           id: 1,
@@ -66,7 +66,7 @@ export const lessonsDummyData = [
     },
     {
       id: 2,
-      name: "Unit 2",
+      name: "what is a star?",
       lessons: [
         {
           id: 3,

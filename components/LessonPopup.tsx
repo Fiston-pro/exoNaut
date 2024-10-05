@@ -62,7 +62,7 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose }) => {
               className="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded transition duration-300"
               onClick={handleVideoEnd}
             >
-              Skip to Quiz
+              Go to Quiz
             </button>
           </div>
         ) : (
@@ -79,7 +79,7 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose }) => {
                 } ${
                   showResult
                     ? answer.isCorrect
-                      ? 'bg-green-500 text-white transform scale-105'
+                      ? 'bg-green-500 text-white transform scale-105 animate-bounce'
                       : selectedAnswer === answer.id
                       ? 'bg-red-500 text-white'
                       : ''
@@ -110,8 +110,8 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose }) => {
                     : 'text-red-500'
                 }`}>
                   {lesson.answers.find(a => a.id === selectedAnswer)?.isCorrect
-                    ? 'Congratulations! You got it right!'
-                    : 'Oops! That\'s not correct. The correct answer is highlighted in green.'}
+                    ? 'Congratulations our ExoNaut! You got it right!'
+                    : 'Oops! That\'s not correct. The correct answer is bouncing now'}
                 </p>
                 <button
                   className="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded transition duration-300"

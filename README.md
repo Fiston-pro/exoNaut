@@ -1,50 +1,55 @@
-# Exonaut: Exploring Exoplanets for Young Minds
+# Exonaut: Exploring Exoplanets for Young Minds 🚀
 
-Welcome to the Exonaut project repository! We're a team participating in the HackYeah hackathon, and we're on a mission to make learning about exoplanets fun and engaging for kids.
+Welcome to the **Exonaut** project repository! We are a passionate team participating in the **HackYeah** hackathon, driven by a mission to make learning about exoplanets fun, engaging, and accessible for kids.
 
-## Deployed on:
+## 🌐 Deployed Project
 
-[ExoNaut](https://exonaut.vercel.app/)
+Check out our live app here: [ExoNaut](https://exonaut.vercel.app/)
 
-## About the Project
+## 🌟 About the Project
 
-Exonaut is an interactive educational app designed to introduce young children to the fascinating world of exoplanets. Built using Next.js, our goal is to spark curiosity about space exploration and make complex astronomical concepts accessible to young learners.
+**Exonaut** is an interactive educational app that introduces young minds to the fascinating world of exoplanets. Using **Next.js** and a playful interface, we aim to spark curiosity about space exploration by making complex astronomical concepts easy to grasp and enjoyable to learn.
 
-## Getting Started
+Our goal is to inspire the next generation of space explorers through interactive lessons, videos, and quizzes.
 
-To get started with the Exonaut project, follow these steps:
+## 🚀 Getting Started
 
-1. Ensure you have [pnpm](https://pnpm.io/) installed on your system.
-2. Clone this repository to your local machine.
-3. Navigate to the project directory and run:
+To set up and run Exonaut locally, follow these steps:
 
-```bash
-pnpm install
-pnpm dev
-```
+1. Ensure you have [pnpm](https://pnpm.io/) installed.
+2. Clone this repository to your local machine:
+   ```bash
+    git clone https://github.com/your-repo/exonaut.git
+    pnpm install
+    pnpm dev
+    ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
 Happy coding and exploring exoplanets!
 
-## Technicalities
+## 🛠️ Tech Stack
 
-- NextJS
-- TailwindCSS
-- ShadCN
-- Vercel
+- **Next.js** – React framework for building scalable web apps.
+- **TailwindCSS** – For crafting modern, responsive UI.
+- **Vercel** – Seamless deployment and hosting.
 
-## Features
-- Every refresh the planets are randomized
-- Short lessons with a video to not make you bored and a quiz to test your brains
-- You collect exobucks to appear more cool
+## 🌟 Key Features
 
-## Future Features
-- Leaderboard to compare yourself with others
+- **Text-to-Speech**: Accessible for learners with disabilities, listen to lessons and quizzes easily.
+- **Short Lessons & Quizzes**: Bite-sized videos to keep kids interested, followed by a quiz to test their knowledge.
+- **Exobucks Rewards**: Earn *Exobucks* to level up and show off your achievements.
+- **Randomized Planets**: Every time the page refreshes, a new planet appears to explore (kinda cool huh?).
 
-## Logic
-Exobucks calculation is done after each learning you get +5 and at the end there is a quiz and you get 1 if you pass it too
+## 🔮 Upcoming Features
 
-## Contributing
+- **Leaderboard**: Compete with other explorers and see who earns the most Exobucks!
 
-We welcome contributions! If you'd like to contribute to Exonaut and help inspire the next generation of space explorers, please feel free to submit pull requests or open issues.
+## 🧠 Learning & Rewards Logic
+
+- Earn **+5 Exobucks** for each completed lesson.
+- After passing a quiz, gain **+1 Exobuck** as a bonus reward.
+
+## 🤝 Contributing
+
+We welcome all contributions! Whether you're fixing bugs, suggesting new features, or improving existing code, your help is appreciated. Feel free to submit **pull requests** or open **issues**. Let’s work together to inspire the next generation of space explorers! 🌠

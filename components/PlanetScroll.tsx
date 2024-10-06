@@ -59,12 +59,12 @@ const PlanetScroll: React.FC<PlanetScrollProps> = ({ userData, onExoBucksEarned,
 
   const handleLessonComplete = (answeredCorrectly: boolean) => {
     if (selectedLesson) {
-      // Add 5 ExoBucks for completing the lesson
-      onExoBucksEarned(5);
+      // Add 100 ExoBucks for completing the lesson
+      onExoBucksEarned(100);
       
-      // Add 1 additional ExoBuck if the answer was correct
+      // Add 50 additional ExoBuck if the answer was correct
       if (answeredCorrectly) {
-        onExoBucksEarned(1);
+        onExoBucksEarned(50);
       }
 
       // Increment user level

@@ -25,6 +25,16 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose, onComplete }
   const [isCorrect, setIsCorrect] = useState(false);
   const [countdown, setCountdown] = useState(2);
   const speechSynthesis = useRef(window.speechSynthesis);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Play the video when the component mounts
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Error attempting to play video:", error);
+      });
+    }
+  }, []);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -39,6 +49,13 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose, onComplete }
               setShowQuiz(false);
               setShowResult(false);
               setSelectedAnswer(null);
+              // Replay the video when returning to it after an incorrect answer
+              if (videoRef.current) {
+                videoRef.current.currentTime = 0;
+                videoRef.current.play().catch(error => {
+                  console.error("Error attempting to replay video:", error);
+                });
+              }
             }
             return 2;
           }
@@ -91,8 +108,10 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose, onComplete }
         {!showQuiz ? (
           <div>
             <video
+              ref={videoRef}
               src={lesson.video}
               controls
+              autoPlay
               className="w-full mb-4"
               onEnded={handleVideoEnd}
             />

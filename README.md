@@ -1,6 +1,8 @@
 # Exonaut: Exploring Exoplanets for Young Minds 🚀
 
-Welcome to the **Exonaut** project repository! We are a passionate team participating in the **HackYeah** hackathon, driven by a mission to make learning about exoplanets fun, engaging, and accessible for kids.
+Welcome to the **Exonaut** project repository! We are a passionate team participating in the **NASA Space Apps** hackathon, driven by a mission to make learning about exoplanets fun, engaging, and accessible for kids.
+
+
 
 ## 🌐 Deployed Project
 

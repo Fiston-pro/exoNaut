@@ -2,7 +2,7 @@
 
 Welcome to the **Exonaut** project repository! We are a passionate team participating in the **NASA Space Apps** hackathon, driven by a mission to make learning about exoplanets fun, engaging, and accessible for kids.
 
-
+![Front panel image](https://github.com/Fiston-pro/exonaut/blob/main/public/images/screenshot.png)
 
 ## 🌐 Deployed Project
 

@@ -8,6 +8,8 @@ Welcome to the **Exonaut** project repository! We are a passionate team particip
 
 Check out our live app here: [ExoNaut](https://exonaut.vercel.app/)
 
+You can use it in computer, tablet or smartphone mode.
+
 ## 🌟 About the Project
 
 **Exonaut** is an interactive educational app that introduces young minds to the fascinating world of exoplanets. Using **Next.js** and a playful interface, we aim to spark curiosity about space exploration by making complex astronomical concepts easy to grasp and enjoyable to learn.

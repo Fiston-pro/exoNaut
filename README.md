@@ -37,6 +37,7 @@ Happy coding and exploring exoplanets!
 ## 🌟 Key Features
 
 - **Text-to-Speech**: Accessible for learners with disabilities, listen to lessons and quizzes easily.
+- **Mobile Friendly**
 - **Short Lessons & Quizzes**: Bite-sized videos to keep kids interested, followed by a quiz to test their knowledge.
 - **Exobucks Rewards**: Earn *Exobucks* to level up and show off your achievements.
 - **Randomized Planets**: Every time the page refreshes, a new planet appears to explore (kinda cool huh?).

@@ -128,7 +128,7 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onComplete, onClose }
             <h2 className="text-4xl font-bold text-green-500 animate-bounce mb-4">
               Congratulations, ExoNaut!
             </h2>
-            <p className="text-xl">You've mastered this challenge. Get ready for the next planet!</p>
+            <p className="text-xl">You have mastered this challenge. Get ready for the next planet!</p>
           </div>
         ) : !showQuiz ? (
           <div>

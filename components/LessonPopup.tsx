@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FaVolumeUp } from 'react-icons/fa';
 
 interface Answer {
@@ -9,21 +9,45 @@ interface Answer {
 
 interface LessonPopupProps {
   lesson: {
-    id: number;
-    name: string;
     description: string;
-    video: string;
     question: string;
+    video: string;
     answers: Answer[];
   };
   onClose: () => void;
+  onComplete: (answeredCorrectly: boolean) => void;
 }
 
-const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose }) => {
+const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose, onComplete }) => {
   const [showQuiz, setShowQuiz] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [countdown, setCountdown] = useState(2);
   const speechSynthesis = useRef(window.speechSynthesis);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (showResult) {
+      timer = setInterval(() => {
+        setCountdown((prevCount) => {
+          if (prevCount <= 1) {
+            clearInterval(timer);
+            if (isCorrect) {
+              onComplete(true);
+            } else {
+              setShowQuiz(false);
+              setShowResult(false);
+              setSelectedAnswer(null);
+            }
+            return 2;
+          }
+          return prevCount - 1;
+        });
+      }, 1000);
+    }
+    return () => clearInterval(timer);
+  }, [showResult, isCorrect, onComplete]);
 
   const handleVideoEnd = () => {
     setShowQuiz(true);
@@ -35,15 +59,10 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose }) => {
 
   const handleSubmit = () => {
     if (selectedAnswer !== null) {
-      setShowResult(true);
-    }
-  };
-
-  const handleClose = () => {
-    if (showResult) {
-      onClose();
-    } else {
-      setShowResult(true);
+      const selectedAnswerObj = lesson.answers.find(a => a.id === selectedAnswer);
+      if (selectedAnswerObj) {
+        handleAnswerSubmit(selectedAnswerObj);
+      }
     }
   };
 
@@ -53,9 +72,20 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose }) => {
     speechSynthesis.current.speak(utterance);
   };
 
+  const handleAnswerSubmit = (selectedAnswer: Answer) => {
+    const correct = selectedAnswer.isCorrect;
+    setIsCorrect(correct);
+    setShowResult(true);
+    setCountdown(2);
+    if (correct) {
+      // Increment lesson +5 and correct answer +1
+      onComplete(true);
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div className="absolute inset-0 bg-black opacity-50" onClick={handleClose}></div>
+      <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="bg-secondary-dark text-white rounded-lg p-8 z-10 max-w-3xl w-full">
         <h2 className="text-2xl font-bold mb-4">{lesson.description}</h2>
         {!showQuiz ? (
@@ -121,20 +151,15 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose }) => {
             ) : (
               <div className="mt-4">
                 <p className={`text-xl font-semibold mb-2 ${
-                  lesson.answers.find(a => a.id === selectedAnswer)?.isCorrect
-                    ? 'text-green-500 animate-bounce'
-                    : 'text-red-500'
+                  isCorrect ? 'text-green-500 animate-bounce' : 'text-red-500'
                 }`}>
-                  {lesson.answers.find(a => a.id === selectedAnswer)?.isCorrect
+                  {isCorrect
                     ? 'Congratulations our ExoNaut! You got it right!'
                     : 'Oops! That\'s not correct. The correct answer is bouncing now'}
                 </p>
-                <button
-                  className="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded transition duration-300"
-                  onClick={onClose}
-                >
-                  Close
-                </button>
+                <div className="text-2xl font-bold text-center">
+                  {countdown}
+                </div>
               </div>
             )}
           </div>

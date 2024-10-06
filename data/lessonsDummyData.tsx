@@ -1,7 +1,7 @@
 export const lessonsDummyData = [
   {
     id: 1, //UNIT 1
-    name: "Let's Get Started!",
+    name: "Let's Get Started!\nClick on a bouncing planet to start a lesson!",
     lessons: [
       {
         id: 1, 

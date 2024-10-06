@@ -111,7 +111,7 @@ export const lessonsDummyData = [
         answers: [
           { id: 1, text: "Hydrogen", isCorrect: true },
           { id: 2, text: "Helium", isCorrect: true },
-          { id: 3, text: "Both!", isCorrect: false }
+          { id: 3, text: "Gold", isCorrect: false }
         ],
       },
       {

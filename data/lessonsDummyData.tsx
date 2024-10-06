@@ -184,7 +184,7 @@ export const lessonsDummyData = [
   },
   {
     id: 4, //UNIT 4
-    name: "The Closest Exoplanets",
+    name: "The Interesting Exoplanets",
     lessons: [
       {
         id: 15,

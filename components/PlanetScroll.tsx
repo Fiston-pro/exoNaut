@@ -102,7 +102,9 @@ const PlanetScroll: React.FC<PlanetScrollProps> = ({ userData, onExoBucksEarned,
                   }}
                 >
                   <div 
-                    className="relative inline-block cursor-pointer"
+                    className={`relative inline-block cursor-pointer ${
+                      isCurrentLevel ? 'animate-pulse' : ''
+                    }`}
                     onClick={() => !isLocked && setSelectedLesson(lesson)}
                   >
                     <Image
@@ -113,7 +115,7 @@ const PlanetScroll: React.FC<PlanetScrollProps> = ({ userData, onExoBucksEarned,
                       className={`rounded-full p-1 ${
                         isLocked ? 'bg-gray-400 filter grayscale' : 
                         isCompleted ? 'bg-green-500' : 'bg-secondary-dark'
-                      }`}
+                      } ${isCurrentLevel ? 'animate-bounce' : ''}`}
                     />
                     {isCurrentLevel && (
                       <div className="absolute -right-10 top-1/2 transform -translate-y-1/2">

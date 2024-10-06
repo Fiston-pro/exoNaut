@@ -18,7 +18,7 @@ interface LessonPopupProps {
   onComplete: (answeredCorrectly: boolean) => void;
 }
 
-const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onClose, onComplete }) => {
+const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onComplete }) => {
   const [showQuiz, setShowQuiz] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);

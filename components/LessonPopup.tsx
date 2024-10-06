@@ -27,6 +27,7 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onComplete, onClose }
   const speechSynthesis = useRef(window.speechSynthesis);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [astronautNumber, setAstronautNumber] = useState(2);
+  const [showCongratulations, setShowCongratulations] = useState(false);
 
   useEffect(() => {
     // Play the video when the component mounts
@@ -50,7 +51,10 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onComplete, onClose }
           if (prevCount <= 1) {
             clearInterval(timer);
             if (isCorrect) {
-              onComplete(true);
+              setShowCongratulations(true);
+              setTimeout(() => {
+                onComplete(true);
+              }, 2000); // Show congratulations for 2 seconds before moving to next planet
             } else {
               setShowQuiz(false);
               setShowResult(false);
@@ -100,10 +104,7 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onComplete, onClose }
     setIsCorrect(correct);
     setShowResult(true);
     setCountdown(2);
-    if (correct) {
-      // Increment lesson +5 and correct answer +1
-      onComplete(true);
-    }
+    // Remove the immediate call to onComplete(true) here
   };
 
   const handleClose = () => {
@@ -122,7 +123,14 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onComplete, onClose }
         >
           <FaTimes className="text-2xl" />
         </button>
-        {!showQuiz ? (
+        {showCongratulations ? (
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-green-500 animate-bounce mb-4">
+              Congratulations, ExoNaut!
+            </h2>
+            <p className="text-xl">You've mastered this challenge. Get ready for the next planet!</p>
+          </div>
+        ) : !showQuiz ? (
           <div>
             <video
               ref={videoRef}

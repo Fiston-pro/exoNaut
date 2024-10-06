@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaVolumeUp } from 'react-icons/fa';
+import { FaVolumeUp, FaTimes } from 'react-icons/fa';
 
 interface Answer {
   id: number;
@@ -18,7 +18,7 @@ interface LessonPopupProps {
   onComplete: (answeredCorrectly: boolean) => void;
 }
 
-const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onComplete }) => {
+const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onComplete, onClose }) => {
   const [showQuiz, setShowQuiz] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
@@ -26,6 +26,7 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onComplete }) => {
   const [countdown, setCountdown] = useState(2);
   const speechSynthesis = useRef(window.speechSynthesis);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [astronautNumber, setAstronautNumber] = useState(2);
 
   useEffect(() => {
     // Play the video when the component mounts
@@ -34,6 +35,11 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onComplete }) => {
         console.error("Error attempting to play video:", error);
       });
     }
+  }, []);
+
+  useEffect(() => {
+    // Randomly choose 2, 3, or 4 for the astronaut GIF
+    setAstronautNumber(Math.floor(Math.random() * 3) + 2);
   }, []);
 
   useEffect(() => {
@@ -100,11 +106,22 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onComplete }) => {
     }
   };
 
+  const handleClose = () => {
+    // You might want to add logic here to save any progress
+    onClose();
+  };
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div className="absolute inset-0 bg-black opacity-50"></div>
-      <div className="bg-secondary-dark text-white rounded-lg p-8 z-10 max-w-3xl w-full">
-        <h2 className="text-2xl font-bold mb-4">{lesson.description}</h2>
+      <div className="bg-secondary-dark text-white rounded-lg p-8 z-10 max-w-3xl w-full relative">
+        <button
+          className="absolute top-2 right-2 text-gray-400 hover:text-white transition duration-300"
+          onClick={handleClose}
+          aria-label="Close lesson"
+        >
+          <FaTimes className="text-2xl" />
+        </button>
         {!showQuiz ? (
           <div>
             <video
@@ -124,15 +141,24 @@ const LessonPopup: React.FC<LessonPopupProps> = ({ lesson, onComplete }) => {
           </div>
         ) : (
           <div>
-            <div className="flex items-center mb-4">
-              <p className="flex-grow text-lg">{lesson.question}</p>
-              <button
-                className="ml-4 p-3 bg-violet-600 hover:bg-violet-700 rounded-full transition duration-300"
-                onClick={readQuestionAndAnswers}
-                aria-label="Read question and answers aloud"
-              >
-                <FaVolumeUp className="text-white text-2xl" />
-              </button>
+            <div className="flex items-center mb-6">
+              <div className="flex-grow pr-6">
+                <h2 className="text-2xl font-bold mb-4">{lesson.question}</h2>
+                <button
+                  className="p-3 bg-violet-600 hover:bg-violet-700 rounded-full transition duration-300"
+                  onClick={readQuestionAndAnswers}
+                  aria-label="Read question and answers aloud"
+                >
+                  <FaVolumeUp className="text-white text-2xl" />
+                </button>
+              </div>
+              <div className="w-40 h-40 flex-shrink-0 overflow-hidden">
+                <img 
+                  src={`/videos/astronauts/astronaut_${astronautNumber}.gif`}
+                  alt={`Cool Astronaut ${astronautNumber} GIF`}
+                  className="w-full h-full object-cover object-center rounded-lg"
+                />
+              </div>
             </div>
             {lesson.answers.map((answer) => (
               <button

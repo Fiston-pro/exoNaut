@@ -122,6 +122,7 @@ const PlanetScroll: React.FC<PlanetScrollProps> = ({ userData, onExoBucksEarned,
                           alt="Current level"
                           width={40}
                           height={40}
+                          className="animate-wiggle"
                         />
                       </div>
                     )}

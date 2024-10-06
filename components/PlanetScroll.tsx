@@ -36,6 +36,7 @@ interface Lesson {
 const PlanetScroll: React.FC<PlanetScrollProps> = ({ userData, onExoBucksEarned, onLevelUp }) => {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
   const [completedLessons, setCompletedLessons] = useState<number[]>([]);
+  const [showLockedMessage, setShowLockedMessage] = useState(false);
 
   useEffect(() => {
     if (completedLessons.length > 0) {
@@ -78,6 +79,23 @@ const PlanetScroll: React.FC<PlanetScrollProps> = ({ userData, onExoBucksEarned,
     }
   };
 
+  const speakMessage = (message: string) => {
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(message);
+      speechSynthesis.speak(utterance);
+    }
+  };
+
+  const handlePlanetClick = (lesson: Lesson) => {
+    if (lesson.id > userData.level) {
+      setShowLockedMessage(true);
+      speakMessage("Solve earlier challenges to unlock this planet!");
+      setTimeout(() => setShowLockedMessage(false), 3000); // Hide message after 3 seconds
+    } else {
+      setSelectedLesson(lesson);
+    }
+  };
+
   return (
     <div className="px-4 py-8 relative">
       {lessonsDummyData.map((unit, unitIndex) => (
@@ -105,7 +123,7 @@ const PlanetScroll: React.FC<PlanetScrollProps> = ({ userData, onExoBucksEarned,
                     className={`relative inline-block cursor-pointer ${
                       isCurrentLevel ? 'animate-pulse' : ''
                     }`}
-                    onClick={() => !isLocked && setSelectedLesson(lesson)}
+                    onClick={() => handlePlanetClick(lesson)}
                   >
                     <Image
                       src={`/images/planets/planet_img_${randomIconNumber}.png`}
@@ -142,6 +160,14 @@ const PlanetScroll: React.FC<PlanetScrollProps> = ({ userData, onExoBucksEarned,
           onClose={() => setSelectedLesson(null)}
           onComplete={handleLessonComplete}
         />
+      )}
+
+      {showLockedMessage && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="bg-black bg-opacity-75 text-white p-4 rounded-lg">
+            <p>Solve earlier challenges to unlock this planet!</p>
+          </div>
+        </div>
       )}
     </div>
   );

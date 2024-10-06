@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 interface HeaderProps {
-  userName: string;
   exoBucks: number;
 }
 
@@ -20,18 +19,9 @@ const Header: React.FC<HeaderProps> = ({ exoBucks }) => {
           ExoNaut
         </span>
       </div>
-      <div className="flex items-center space-x-4">
-        <div className="flex items-center">
-          <Image src="/images/exobucks_img.png" alt="ExoBucks" width={40} height={40} />
-          <span className="ml-2 text-xl font-bold">{exoBucks}</span>
-        </div>
-        <Image 
-          src="/images/user_img.png" 
-          alt="User profile" 
-          width={40} 
-          height={40} 
-          className="rounded-full"
-        />
+      <div className="flex items-center pr-4 lg:pr-8">
+        <Image src="/images/exobucks_img.png" alt="ExoBucks" width={40} height={40} />
+        <span className="ml-2 text-xl font-bold">{exoBucks}</span>
       </div>
     </header>
   );

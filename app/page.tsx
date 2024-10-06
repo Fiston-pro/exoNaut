@@ -32,7 +32,6 @@ export default function Home() {
       <BackgroundVideo src="/videos/background_gif.gif" />
       <div className="relative z-10 flex flex-col flex-grow">
         <Header
-          userName={userData.name}
           exoBucks={userData.exoBucks}
         />
         <div className="flex-grow flex justify-center items-center mt-20 sm:mt-0">
